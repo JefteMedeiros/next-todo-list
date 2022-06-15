@@ -17,14 +17,14 @@ const Task: React.FC<ITask> = ({ title, description, id, deleteTask }) => {
           <AiOutlineClose className="mt-1"/>
         </button>
       </div>
-      <textarea disabled className="rounded-md disabled:bg-white">{description}</textarea>
+      <textarea disabled className="rounded-md disabled:bg-white p-2">{description}</textarea>
       <div className="flex justify-between">
         <button onClick={() => alert("W.I.P!")} className="self-start border-2 p-2 rounded-md text-white hover:outline-none hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-zinc-700 transition-all">
-          Editar
+          Edit
         </button>
         <div className="flex gap-2 text-white items-center">
           <input className="mt-1" type="checkbox" />
-          Feito
+          Done
         </div>
       </div>
     </div>
