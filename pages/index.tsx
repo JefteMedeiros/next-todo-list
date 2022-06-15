@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import AddTask from "../components/AddTask";
 import Layout from "../components/Layout";
 import Task from "../components/Task/index";
@@ -17,7 +19,7 @@ const Home: React.FC = () => {
 
   const handleAddTask = (taskTitle: string, taskDescription: string) => {
     const randomId = Math.ceil(Math.random() * 99999);
-    
+
     taskTitle = title;
     taskDescription = description;
 
@@ -27,7 +29,18 @@ const Home: React.FC = () => {
       taskDescription: taskDescription,
     };
 
-    handleSetTask([...task, taskOject]);
+    !taskTitle || !taskDescription
+      ? toast.error('Error! Fill in all the fields.', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+      : handleSetTask([...task, taskOject]);
   };
 
   const deleteTask = (id: number) => {
@@ -36,6 +49,7 @@ const Home: React.FC = () => {
 
   return (
     <Layout>
+      <ToastContainer />
       <AddTask
         title={title}
         description={description}

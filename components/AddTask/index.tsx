@@ -1,28 +1,34 @@
 import React from "react";
 
 interface IAddTask {
-  title: string, 
-  description: string,
-  handleSetTitle: (title: string) => void
-  handleSetDescription: (description: string) => void
-  handleAddTask: (title: string, description: string) => void
+  title: string;
+  description: string;
+  handleSetTitle: (title: string) => void;
+  handleSetDescription: (description: string) => void;
+  handleAddTask: (title: string, description: string) => void;
 }
 
-const AddTask: React.FC<IAddTask> = ({handleAddTask, title, description, handleSetDescription, handleSetTitle}) => {
+const AddTask: React.FC<IAddTask> = ({
+  handleAddTask,
+  title,
+  description,
+  handleSetDescription,
+  handleSetTitle,
+}) => {
   return (
     <div>
-      <div className="flex flex-col gap-2 mt-2 mb-4 items-start">
+      <div className="flex flex-col gap-2 my-4 items-start">
         <input
           className="border-2 border-white p-2 min-w-[300px] rounded-md"
           type="text"
           required
           onChange={(e) => handleSetTitle(e.target.value)}
-          placeholder="Digite o nome da task"
+          placeholder="Title"
         />
         <textarea
           className="border-2 border-white p-2 rounded-md min-w-[300px]"
           onChange={(e) => handleSetDescription(e.target.value)}
-          placeholder="Descrição"
+          placeholder="Description"
         />
         <button
           onClick={() => handleAddTask(title, description)}
