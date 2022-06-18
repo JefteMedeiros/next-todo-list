@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 
-import { buttonStyles, createTaskStyles } from "../../styles/global";
-
 interface IAddTask {
   title: string;
   description: string;
@@ -18,6 +16,17 @@ const AddTask: React.FC<IAddTask> = ({
   handleSetDescription,
   handleSetTitle,
 }) => {
+  const buttonStyles = {
+    normal: "rotate-360 transition-all",
+    flipped: "rotate-180 transition-all",
+  };
+
+  const createTaskStyles = {
+    normal: "flex flex-col gap-2 items-start rotate-360 transition-all z-9999",
+    hidden:
+      "flex flex-col gap-2 items-start opacity-0 transition-all mb-[-172px]",
+  };
+
   const [buttonStyle, setButtonStyle] = useState(buttonStyles.normal);
   const [containerStyle, setContainerStyle] = useState(createTaskStyles.normal);
 
