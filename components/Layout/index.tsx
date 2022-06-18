@@ -1,19 +1,17 @@
-import React from 'react';
-import Header from '../Header';
+import React from "react";
+import Header from "../Header";
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({children}) => {
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center">
-        {children}
-      </div>
+      <div className="flex flex-col items-center">{children}</div>
     </>
   );
-}
+};
 
 export default Layout;

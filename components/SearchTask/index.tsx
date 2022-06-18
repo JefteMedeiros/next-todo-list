@@ -7,14 +7,15 @@ interface Props {
 }
 
 const SearchTask: React.FC<Props> = ({ setSearch }) => {
-   const buttonStyles = {
+  const buttonStyles = {
     normal: "rotate-360 transition-all",
     flipped: "rotate-180 transition-all",
-  };  
+  };
 
-   const searchTaskStyles = {
+  const searchTaskStyles = {
     normal: "flex flex-col gap-2 items-start rotate-360 transition-all",
-    hidden: "flex flex-col gap-2 items-start opacity-0 disabled transition-all mb-[-72px]",
+    hidden:
+      "hidden disabled transition-all mb-[-72px]",
   };
 
   const [buttonStyle, setButtonStyle] = useState(buttonStyles.normal);
@@ -34,13 +35,13 @@ const SearchTask: React.FC<Props> = ({ setSearch }) => {
   };
 
   return (
-    <div className="flex flex-col mt-2 items-start">
-      <h1 className="flex items-center gap-2 text-2xl text-white">
+    <div className="flex flex-col w-[300px] mt-2 items-start">
+      <div className="flex items-center gap-2 text-2xl text-white">
         Search task
         <button onClick={() => handleSetShow()}>
           <BsChevronDown className={buttonStyle} />
         </button>
-      </h1>
+      </div>
       <div className={containerStyle}>
         <div className="flex items-center relative pl-3 my-4 rounded-md bg-white w-[300px]">
           <AiOutlineSearch className="absolute right-2 text-zinc-700" />

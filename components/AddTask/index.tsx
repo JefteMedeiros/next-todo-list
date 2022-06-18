@@ -24,7 +24,7 @@ const AddTask: React.FC<IAddTask> = ({
   const createTaskStyles = {
     normal: "flex flex-col gap-2 items-start rotate-360 transition-all z-9999",
     hidden:
-      "flex flex-col gap-2 items-start opacity-0 transition-all mb-[-172px]",
+      "hidden opacity-0 transition-all mb-[-172px]",
   };
 
   const [buttonStyle, setButtonStyle] = useState(buttonStyles.normal);
@@ -44,13 +44,13 @@ const AddTask: React.FC<IAddTask> = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 my-1">
-      <h1 className="flex gap-2 items-center text-2xl text-white">
+    <div className="flex flex-col w-[300px] gap-2 my-1">
+      <div className="flex gap-2 items-center text-2xl text-white">
         Create task
         <button onClick={() => handleSetShow()}>
           <BsChevronDown className={buttonStyle} />
         </button>
-      </h1>
+      </div>
       <div className={containerStyle}>
         <input
           className="border-2 border-white p-2 min-w-[300px] rounded-md"

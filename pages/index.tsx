@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BsChevronDown } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AddTask from "../components/AddTask";
@@ -50,6 +48,12 @@ const Home: React.FC = () => {
     handleSetTask(task.filter((e) => e.id !== id));
   };
 
+  const searchTask = (title: string, search: string) => {
+    const titleArr = title.toLowerCase().split("");
+    const searchArr = search.toLowerCase().split("");
+    return titleArr.some((e) => searchArr.includes(e));
+  };
+
   return (
     <Layout>
       <ToastContainer />
@@ -61,20 +65,20 @@ const Home: React.FC = () => {
         handleSetTitle={handleSetTitle}
         handleAddTask={handleAddTask}
       />
-      {task.map((e, key) => {
-        return (
-          <div key={key}>
-            <div className="my-3 flex flex-col">
-              <Task
-                id={e.id}
-                deleteTask={deleteTask}
-                title={e.taskTitle}
-                description={e.taskDescription}
-              />
+      {task.filter((e) => !search || searchTask(e.taskTitle, search)).map((e, key) => {
+          return (
+            <div key={key}>
+              <div className="my-3 flex flex-col">
+                <Task
+                  id={e.id}
+                  deleteTask={deleteTask}
+                  title={e.taskTitle}
+                  description={e.taskDescription}
+                />
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </Layout>
   );
 };
