@@ -36,7 +36,7 @@ const SearchTask: React.FC<Props> = ({ setSearch }) => {
 
   return (
     <div className="flex flex-col w-[300px] mt-2 items-start">
-      <div className="flex items-center gap-2 text-2xl text-white">
+      <div className="flex items-center justify-between w-[152px] text-2xl text-white">
         Search task
         <button onClick={() => handleSetShow()}>
           <BsChevronDown className={buttonStyle} />

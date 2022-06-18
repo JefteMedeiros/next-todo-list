@@ -42,6 +42,8 @@ const Home: React.FC = () => {
           theme: "light",
         })
       : handleSetTask([...task, taskOject]);
+      handleSetTitle("")
+      handleSetDescription("")
   };
 
   const deleteTask = (id: number) => {

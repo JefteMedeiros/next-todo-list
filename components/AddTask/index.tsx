@@ -44,8 +44,8 @@ const AddTask: React.FC<IAddTask> = ({
   };
 
   return (
-    <div className="flex flex-col w-[300px] gap-2 my-1">
-      <div className="flex gap-2 items-center text-2xl text-white">
+    <div className="flex flex-col gap-2 w-[300px] my-1">
+      <div className="flex gap-2 w-[152px] justify-between items-center text-2xl text-white">
         Create task
         <button onClick={() => handleSetShow()}>
           <BsChevronDown className={buttonStyle} />
@@ -56,6 +56,7 @@ const AddTask: React.FC<IAddTask> = ({
           className="border-2 border-white p-2 min-w-[300px] rounded-md"
           type="text"
           required
+          value={title}
           onChange={(e) => handleSetTitle(e.target.value)}
           placeholder="Title"
         />
@@ -63,6 +64,7 @@ const AddTask: React.FC<IAddTask> = ({
           className="border-2 border-white p-2 rounded-md min-w-[300px]"
           onChange={(e) => handleSetDescription(e.target.value)}
           placeholder="Description"
+          value={description}
         />
         <button
           onClick={() => handleAddTask(title, description)}

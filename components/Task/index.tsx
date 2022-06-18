@@ -25,7 +25,7 @@ const Task: React.FC<ITask> = ({ title, description, id, deleteTask }) => {
       <div className="flex mt-2 justify-between">
         <button
           onClick={() => alert("W.I.P!")}
-          className="self-start border-2 px-2 py-1 rounded-md text-white hover:outline-none hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-zinc-700 transition-all"
+          className="self-start border-2 px-2 py-1 rounded-md text-white hover:outline-none hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-cyan-600 transition-all"
         >
           Edit
         </button>
