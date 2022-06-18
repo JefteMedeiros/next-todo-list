@@ -45,7 +45,7 @@ const AddTask: React.FC<IAddTask> = ({
 
   return (
     <div className="flex flex-col gap-2 w-[300px] my-1">
-      <div className="flex gap-2 w-[152px] justify-between items-center text-2xl text-white">
+      <div className="flex gap-2 w-[160px] justify-between items-center text-2xl text-white">
         Create task
         <button onClick={() => handleSetShow()}>
           <BsChevronDown className={buttonStyle} />
