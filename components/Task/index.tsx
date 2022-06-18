@@ -10,7 +10,7 @@ interface ITask {
 
 const Task: React.FC<ITask> = ({ title, description, id, deleteTask }) => {
   return (
-    <div className="bg-zinc-600 p-4 rounded-md min-w-[300px] flex flex-col gap-2">
+    <div className="bg-cyan-600 p-4 rounded-md min-w-[300px] flex flex-col gap-2">
       <div className="text-white text-xl flex justify-between mb-1">
         <h1 className="text-justify">{title}</h1>
         <button onClick={() => deleteTask(id)}>

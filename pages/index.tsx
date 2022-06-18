@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import AddTask from "../components/AddTask";
 import Layout from "../components/Layout";
+import SearchTask from "../components/SearchTask";
 import Task from "../components/Task/index";
 
 interface ITask {
@@ -15,9 +17,7 @@ interface ITask {
 const Home: React.FC = () => {
   const [title, handleSetTitle] = useState("");
   const [description, handleSetDescription] = useState("");
-
   const [search, setSearch] = useState("");
-
   const [task, handleSetTask] = useState<ITask[]>([]);
 
   const handleAddTask = (taskTitle: string, taskDescription: string) => {
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
     };
 
     !taskTitle || !taskDescription
-      ? toast('Error! Fill in all the fields.', {
+      ? toast("Error! Fill in all the fields.", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -53,10 +53,7 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <ToastContainer />
-      <div className="flex items-center relative pl-3 my-4 rounded-md bg-white w-[300px]">
-        <AiOutlineSearch className="absolute right-2 text-zinc-700"/> 
-        <input className="outline-none my-2 w-[260px]" placeholder="Filtrar" type="text" onChange={(e) => setSearch(e.target.value)} />
-      </div>
+      <SearchTask setSearch={setSearch} />
       <AddTask
         title={title}
         description={description}
@@ -64,7 +61,7 @@ const Home: React.FC = () => {
         handleSetTitle={handleSetTitle}
         handleAddTask={handleAddTask}
       />
-      {task.filter(e => !task || (e.taskDescription.split('')).some((e) => search.split('').includes(e))).map((e, key) => {
+      {task.map((e, key) => {
         return (
           <div key={key}>
             <div className="my-3 flex flex-col">
