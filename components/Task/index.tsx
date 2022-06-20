@@ -9,10 +9,21 @@ interface ITask {
 }
 
 const Task: React.FC<ITask> = ({ title, description, id, deleteTask }) => {
+  const [done, setDone] = useState("no-underline")
+
+  const styles = {
+    done: "line-through",
+    undone: "no-underline"
+  }
+
+  const setChecked = () => {
+    setDone(done == styles.undone ? styles.done : styles.undone)
+  }
+
   return (
     <div className="bg-cyan-600 p-4 rounded-md min-w-[300px] flex flex-col gap-2">
       <div className="text-white text-xl flex justify-between mb-1">
-        <h1 className="text-justify">{title}</h1>
+        <h1 className={done}>{title}</h1>
         <button onClick={() => deleteTask(id)}>
           <AiOutlineClose className="mt-1" />
         </button>
@@ -30,7 +41,7 @@ const Task: React.FC<ITask> = ({ title, description, id, deleteTask }) => {
           Edit
         </button>
         <div className="flex gap-2 text-white items-center">
-          <input type="checkbox" />
+          <input onChange={() => setChecked()} type="checkbox" />
           Done
         </div>
       </div>

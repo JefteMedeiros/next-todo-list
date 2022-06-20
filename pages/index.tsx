@@ -51,9 +51,9 @@ const Home: React.FC = () => {
   };
 
   const searchTask = (title: string, search: string) => {
-    const titleArr = title.toLowerCase().split("");
-    const searchArr = search.toLowerCase().split("");
-    return titleArr.some((e) => searchArr.includes(e));
+    const titleLower = title.toLowerCase();
+    const searchLower = search.toLowerCase();
+    return titleLower.includes(searchLower);
   };
 
   return (
