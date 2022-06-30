@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     <div className="p-4 bg-cyan-600 text-white text-center">
       <h1 className="flex items-center justify-center gap-4 text-[2rem]">
         Next.JS Todo-List
-        <button onClick={(e) => handleClick()}>
+        <button onClick={() => handleClick()}>
           <SiVercel className={style} />
         </button>
       </h1>

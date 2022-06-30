@@ -24,7 +24,7 @@ const AddTask: React.FC<IAddTask> = ({
   const createTaskStyles = {
     normal: "flex flex-col gap-2 items-start rotate-360 transition-all z-9999",
     hidden:
-      "hidden opacity-0 transition-all mb-[-172px]",
+      "flex flex-col gap-2 items-start invisible opacity-0 transition-all duration-200 mb-[-172px]",
   };
 
   const [buttonStyle, setButtonStyle] = useState(buttonStyles.normal);

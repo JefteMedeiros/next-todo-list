@@ -15,7 +15,7 @@ const SearchTask: React.FC<Props> = ({ setSearch }) => {
   const searchTaskStyles = {
     normal: "flex flex-col gap-2 items-start rotate-360 transition-all",
     hidden:
-      "hidden disabled transition-all mb-[-72px]",
+      "invisible opacity-0 transition-all duration-200 mb-[-72px]",
   };
 
   const [buttonStyle, setButtonStyle] = useState(buttonStyles.normal);

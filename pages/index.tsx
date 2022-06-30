@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AddTask from "../components/AddTask";
 import Layout from "../components/Layout";
 import SearchTask from "../components/SearchTask";
-import Task from "../components/Task/index";
+import TasksComponent from "../components/TasksComponent";
 
 interface ITask {
   id: number;
@@ -42,8 +42,8 @@ const Home: React.FC = () => {
           theme: "light",
         })
       : handleSetTask([...task, taskOject]);
-      handleSetTitle("")
-      handleSetDescription("")
+    handleSetTitle("");
+    handleSetDescription("");
   };
 
   const deleteTask = (id: number) => {
@@ -67,20 +67,12 @@ const Home: React.FC = () => {
         handleSetTitle={handleSetTitle}
         handleAddTask={handleAddTask}
       />
-      {task.filter((e) => !search || searchTask(e.taskTitle, search)).map((e, key) => {
-          return (
-            <div key={key}>
-              <div className="my-3 flex flex-col">
-                <Task
-                  id={e.id}
-                  deleteTask={deleteTask}
-                  title={e.taskTitle}
-                  description={e.taskDescription}
-                />
-              </div>
-            </div>
-          );
-        })}
+      <TasksComponent
+        task={task}
+        search={search}
+        searchTask={searchTask}
+        deleteTask={deleteTask}
+      />
     </Layout>
   );
 };
