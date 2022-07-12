@@ -10,7 +10,7 @@ interface ITask {
 interface IProps {
   task: ITask[],
   search: string,
-  searchTask:(title: string, searcb: string) => boolean
+  searchTask:(title: string, search: string) => boolean
   deleteTask:(id: number) => void;
 }
 

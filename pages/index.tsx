@@ -53,7 +53,7 @@ const Home: React.FC = () => {
   const searchTask = (title: string, search: string) => {
     const titleLower = title.toLowerCase();
     const searchLower = search.toLowerCase();
-    return titleLower.includes(searchLower);
+    return searchLower.includes(titleLower);
   };
 
   return (
